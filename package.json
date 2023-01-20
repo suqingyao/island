@@ -10,15 +10,18 @@
     "island": "bin/island.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "cullyfung",
+  "license": "MIT",
   "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.11.18",
+    "rollup": "^3.10.0",
     "typescript": "^4.9.4"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^3.0.1",
     "cac": "^6.7.14",
+    "fs-extra": "^11.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vite": "^4.0.4"
