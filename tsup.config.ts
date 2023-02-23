@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: ['src/node/cli.ts'],
@@ -7,5 +7,5 @@ export default defineConfig({
   outDir: 'dist',
   format: ['cjs', 'esm'],
   dts: true,
-  shims:true,
-})
+  shims: true
+});
