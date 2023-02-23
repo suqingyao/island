@@ -1,9 +1,10 @@
 import { SERVER_ENTRY_PATH } from './constants/index'
 import { build as viteBuild, InlineConfig } from 'vite'
 import { CLIENT_ENTRY_PATH } from './constants'
-import * as path from 'path'
-import * as fs from 'fs-extra'
+import path from 'path'
+import fs from 'fs-extra'
 import type { RollupOutput } from 'rollup'
+import ora from 'ora'
 
 export async function bundle(root: string) {
   const resolveViteConfig = (isServer: boolean): InlineConfig => {
@@ -22,6 +23,10 @@ export async function bundle(root: string) {
       }
     }
   }
+
+  const spinner = ora()
+  spinner.start('Building client + server bundles...')
+
   try {
     const [clientBundle, serverBundle] = await Promise.all([
       viteBuild(resolveViteConfig(false)),
@@ -65,6 +70,6 @@ export async function renderPage(
 export async function build(root: string) {
   const [clientBundle, serverBundle] = await bundle(root)
   const serverEntryPath = path.join(root, '.temp', 'server-entry.js')
-  const { render } = require(serverEntryPath)
+  const { render } = await import(serverEntryPath)
   await renderPage(render, root, clientBundle)
 }
