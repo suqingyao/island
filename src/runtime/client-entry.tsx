@@ -1,12 +1,15 @@
-import { createRoot } from 'react-dom/client'
-import App from './app'
+import { createRoot } from 'react-dom/client';
+import App from './app';
+import siteData from 'island:site-data';
 
 function renderInBrowser() {
-  const rootElement = document.getElementById('root')
+  console.log(siteData);
+
+  const rootElement = document.getElementById('root');
   if (!rootElement) {
-    throw new Error('#root element not found')
+    throw new Error('#root element not found');
   }
-  createRoot(rootElement).render(<App />)
+  createRoot(rootElement).render(<App />);
 }
 
-renderInBrowser()
+renderInBrowser();
