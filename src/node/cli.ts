@@ -1,6 +1,5 @@
 import cac from 'cac';
 import { build } from './build';
-import { createDevServer } from './dev';
 
 const cli = cac('island').version('0.0.1').help();
 
