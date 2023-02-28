@@ -5,12 +5,19 @@ import path from 'path';
 import fs from 'fs-extra';
 import type { RollupOutput } from 'rollup';
 import ora from 'ora';
+import { SiteConfig } from 'shared/types';
+import pluginReact from '@vitejs/plugin-react';
+import { pluginConfig } from './plugin-island/config';
 
-export async function bundle(root: string) {
+export async function bundle(root: string, config: SiteConfig) {
   const resolveViteConfig = (isServer: boolean): InlineConfig => {
     return {
       mode: 'production',
       root,
+      plugins: [pluginReact(), pluginConfig(config)],
+      ssr: {
+        noExternal: ['react-router-dom']
+      },
       build: {
         ssr: isServer,
         outDir: isServer ? '.temp' : 'build',
@@ -67,8 +74,8 @@ export async function renderPage(
   await fs.remove(path.join(root, '.temp'));
 }
 
-export async function build(root: string) {
-  const [clientBundle, serverBundle] = await bundle(root);
+export async function build(root: string = process.cwd(), config: SiteConfig) {
+  const [clientBundle, serverBundle] = await bundle(root, config);
   const serverEntryPath = path.join(root, '.temp', 'server-entry.js');
   const { render } = await import(serverEntryPath);
   await renderPage(render, root, clientBundle);
