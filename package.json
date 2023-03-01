@@ -9,7 +9,7 @@
     "preview": "cd build && serve .",
     "lint": "eslint --fix --ext .ts,.tsx.js,.jsx ./",
     "prepare": "husky install",
-    "test:unit": "vitest --ui",
+    "test:unit": "vitest",
     "test:e2e": "playwright test",
     "prepare:e2e": "tsx scripts/prepare-e2e.ts"
   },
@@ -49,8 +49,10 @@
     "vitest": "^0.28.5"
   },
   "dependencies": {
+    "@loadable/component": "^5.15.3",
     "@vitejs/plugin-react": "^3.0.1",
     "cac": "^6.7.14",
+    "fast-glob": "^3.2.12",
     "fs-extra": "^11.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
