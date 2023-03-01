@@ -1,4 +1,4 @@
-import { Plugin, PluginOption } from 'vite';
+import { Plugin } from 'vite';
 import { RouteService } from './RouteService';
 
 interface PluginOptions {

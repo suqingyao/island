@@ -41,3 +41,8 @@ export interface SiteConfig {
   configPath: string;
   siteData: UserConfig;
 }
+
+export interface RouteMeta {
+  routePath: string;
+  absolutePath: string;
+}

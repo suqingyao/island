@@ -9,17 +9,17 @@ interface RouteMeta {
 
 export class RouteService {
   #scanDir: string;
-  #routeData: RouteMeta[];
+  #routeData: RouteMeta[] = [];
   constructor(scanDir: string) {
     this.#scanDir = scanDir;
   }
 
   async init() {
     const files = await fg
-      .sync('**/*.{js,jsx,ts,tsx,md,mdx}', {
+      .sync(['**/*.{js,jsx,ts,tsx,md,mdx}'], {
         cwd: this.#scanDir,
         absolute: true,
-        ignore: ['**/build/**', '**/island/**', 'config.ts']
+        ignore: ['**/node_modules/**', '**/build/**', 'config.ts']
       })
       .sort();
     files.forEach((file) => {
@@ -44,9 +44,11 @@ ${this.#routeData
   })
   .join('\n')}
 export const routes = [
-  ${this.#routeData.map((route, index) => {
-    return `{ path: '${route.routePath}', element: React.createElement(Route${index}) }`;
-  })}
+  ${this.#routeData
+    .map((route, index) => {
+      return `{ path: '${route.routePath}', element: React.createElement(Route${index}) }`;
+    })
+    .join('\n')}
 ]
     `;
   }
