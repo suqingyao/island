@@ -4,6 +4,7 @@ import rehypeAutolinkHeading from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
+import { rehypePluginPreWrapper } from './rehypePlugins/preWrapper';
 
 export function pluginMdxRollup() {
   return [
@@ -31,7 +32,8 @@ export function pluginMdxRollup() {
               value: '#'
             }
           }
-        ]
+        ],
+        rehypePluginPreWrapper
       ]
     })
   ];

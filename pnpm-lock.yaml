@@ -7,6 +7,7 @@ specifiers:
   '@mdx-js/rollup': ^2.3.0
   '@playwright/test': ^1.31.1
   '@types/fs-extra': ^11.0.1
+  '@types/hast': ^2.3.4
   '@types/node': ^18.11.18
   '@typescript-eslint/eslint-plugin': ^5.53.0
   '@typescript-eslint/parser': ^5.53.0
@@ -41,6 +42,7 @@ specifiers:
   tsup: ^6.6.3
   typescript: ^4.9.4
   unified: ^10.1.2
+  unist-util-visit: ^4.1.2
   vite: ^4.0.4
   vitest: ^0.28.5
 
@@ -66,6 +68,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.4.4
   '@playwright/test': 1.31.1
   '@types/fs-extra': 11.0.1
+  '@types/hast': 2.3.4
   '@types/node': 18.11.18
   '@typescript-eslint/eslint-plugin': 5.53.0_bms4h3ltfv2ag72qjym4ziu734
   '@typescript-eslint/parser': 5.53.0_ehfyfk7qbmgzg5nk6xmobqdh3a
@@ -88,6 +91,7 @@ devDependencies:
   tsup: 6.6.3_typescript@4.9.4
   typescript: 4.9.4
   unified: 10.1.2
+  unist-util-visit: 4.1.2
   vitest: 0.28.5_@vitest+ui@0.28.5
 
 packages:
