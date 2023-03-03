@@ -40,6 +40,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "hast": "^1.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "ora": "^6.1.2",
@@ -62,6 +63,7 @@
     "cac": "^6.7.14",
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.1.0",
+    "hast-util-from-html": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
@@ -70,6 +72,7 @@
     "remark-frontmatter": "^4.0.1",
     "remark-gfm": "^3.0.1",
     "remark-mdx-frontmatter": "^2.1.1",
+    "shiki": "^0.14.1",
     "vite": "^4.0.4"
   }
 }

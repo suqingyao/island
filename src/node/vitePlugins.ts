@@ -3,10 +3,10 @@ import { pluginConfig } from './plugin-island/config';
 import { pluginIndexHtml } from './plugin-island/indexHtml';
 import { pluginRoutes } from './plugin-routes';
 import pluginReact from '@vitejs/plugin-react';
-import { createMdxPlugins } from './plugin-mdx';
+import { pluginMdx } from './plugin-mdx';
 import { Plugin } from 'vite';
 
-export function createVitePlugins(
+export async function createVitePlugins(
   config: SiteConfig,
   restart?: () => Promise<void>
 ) {
@@ -19,6 +19,6 @@ export function createVitePlugins(
     pluginRoutes({
       root: config.root
     }),
-    createMdxPlugins()
+    await pluginMdx()
   ] as Plugin[];
 }

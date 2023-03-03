@@ -4,12 +4,19 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringigy from 'rehype-stringify';
 import { describe, expect, test } from 'vitest';
 import { rehypePluginPreWrapper } from '../../node/plugin-mdx/rehypePlugins/preWrapper';
+import { rehypePluginShiki } from '../../node/plugin-mdx/rehypePlugins/shiki';
+import shiki from 'shiki';
 
-describe('Markdown compile cases', () => {
+describe('Markdown compile cases', async () => {
   const processor = unified();
   processor
     .use(remarkParse)
     .use(remarkRehype)
+    .use(rehypePluginShiki, {
+      highlighter: await shiki.getHighlighter({
+        theme: 'vitesse-dark'
+      })
+    })
     .use(rehypeStringigy)
     .use(rehypePluginPreWrapper);
 
@@ -28,11 +35,8 @@ describe('Markdown compile cases', () => {
   });
 
   test('Compile code block', () => {
-    const mdContent = '```javascript\n console.log(123)\n```';
+    const mdContent = '```js\nconsole.log(123);\n```';
     const result = processor.processSync(mdContent);
-    expect(result.value).toMatchInlineSnapshot(`
-      "<div class=\\"language-javascript\\"><span class=\\"lang\\">javascript</span><pre><code class=\\"\\"> console.log(123)
-      </code></pre></div>"
-    `);
+    expect(result.value).toMatchInlineSnapshot();
   });
 });

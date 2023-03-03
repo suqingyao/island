@@ -5,36 +5,45 @@ import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import { rehypePluginPreWrapper } from './rehypePlugins/preWrapper';
+import { rehypePluginShiki } from './rehypePlugins/shiki';
+import type { Plugin } from 'vite';
+import shiki from 'shiki';
 
-export function pluginMdxRollup() {
-  return [
-    pluginMdx({
-      remarkPlugins: [
-        remarkGFM,
-        remarkFrontmatter,
-        [
-          remarkMdxFrontmatter,
-          {
-            name: 'frontmatter'
-          }
-        ]
-      ],
-      rehypePlugins: [
-        rehypeSlug,
-        [
-          rehypeAutolinkHeading,
-          {
-            properties: {
-              class: 'head-anchor'
-            },
-            content: {
-              type: 'text',
-              value: '#'
-            }
-          }
-        ],
-        rehypePluginPreWrapper
+export async function pluginMdxRollup(): Promise<Plugin> {
+  return pluginMdx({
+    remarkPlugins: [
+      remarkGFM,
+      remarkFrontmatter,
+      [
+        remarkMdxFrontmatter,
+        {
+          name: 'frontmatter'
+        }
       ]
-    })
-  ];
+    ],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeading,
+        {
+          properties: {
+            class: 'head-anchor'
+          },
+          content: {
+            type: 'text',
+            value: '#'
+          }
+        }
+      ],
+      rehypePluginPreWrapper,
+      [
+        rehypePluginShiki,
+        {
+          highlighter: await shiki.getHighlighter({
+            theme: 'vitesse-dark'
+          })
+        }
+      ]
+    ]
+  });
 }
