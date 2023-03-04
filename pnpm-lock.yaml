@@ -8,11 +8,13 @@ specifiers:
   '@playwright/test': ^1.31.1
   '@types/fs-extra': ^11.0.1
   '@types/hast': ^2.3.4
+  '@types/mdast': ^3.0.10
   '@types/node': ^18.11.18
   '@typescript-eslint/eslint-plugin': ^5.53.0
   '@typescript-eslint/parser': ^5.53.0
   '@vitejs/plugin-react': ^3.0.1
   '@vitest/ui': ^0.28.5
+  acorn: ^8.8.2
   cac: ^6.7.14
   commitlint: ^17.4.4
   eslint: ^8.34.0
@@ -22,10 +24,12 @@ specifiers:
   eslint-plugin-react-hooks: ^4.6.0
   fast-glob: ^3.2.12
   fs-extra: ^11.1.0
+  github-slugger: ^2.0.0
   hast: ^1.0.0
   hast-util-from-html: ^1.0.1
   husky: ^8.0.3
   lint-staged: ^13.1.2
+  mdast-util-mdxjs-esm: ^1.3.1
   ora: ^6.1.2
   prettier: ^2.8.4
   react: ^18.2.0
@@ -36,6 +40,7 @@ specifiers:
   rehype-stringify: ^9.0.3
   remark-frontmatter: ^4.0.1
   remark-gfm: ^3.0.1
+  remark-mdx: ^2.3.0
   remark-mdx-frontmatter: ^2.1.1
   remark-parse: ^10.0.1
   remark-rehype: ^10.1.0
@@ -53,9 +58,11 @@ dependencies:
   '@loadable/component': 5.15.3_react@18.2.0
   '@mdx-js/rollup': 2.3.0_rollup@3.10.0
   '@vitejs/plugin-react': 3.0.1_vite@4.0.4
+  acorn: 8.8.2
   cac: 6.7.14
   fast-glob: 3.2.12
   fs-extra: 11.1.0
+  github-slugger: 2.0.0
   hast-util-from-html: 1.0.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -64,6 +71,7 @@ dependencies:
   rehype-slug: 5.1.0
   remark-frontmatter: 4.0.1
   remark-gfm: 3.0.1
+  remark-mdx: 2.3.0
   remark-mdx-frontmatter: 2.1.1
   shiki: 0.14.1
   vite: 4.0.4_@types+node@18.11.18
@@ -74,6 +82,7 @@ devDependencies:
   '@playwright/test': 1.31.1
   '@types/fs-extra': 11.0.1
   '@types/hast': 2.3.4
+  '@types/mdast': 3.0.10
   '@types/node': 18.11.18
   '@typescript-eslint/eslint-plugin': 5.53.0_bms4h3ltfv2ag72qjym4ziu734
   '@typescript-eslint/parser': 5.53.0_ehfyfk7qbmgzg5nk6xmobqdh3a
@@ -87,6 +96,7 @@ devDependencies:
   hast: 1.0.0
   husky: 8.0.3
   lint-staged: 13.1.2
+  mdast-util-mdxjs-esm: 1.3.1
   ora: 6.1.2
   prettier: 2.8.4
   rehype-stringify: 9.0.3
@@ -1106,11 +1116,9 @@ packages:
     resolution: {integrity: sha512-3qvGd0z8F2ENTGr/GG1yViqfiKmRfrXVx5sJyHGFu3z7m5g5utCQtGp/g29JnjflhtQJBv1WDQukHiT58xPcYQ==}
     dependencies:
       '@types/estree': 1.0.0
-    dev: false
 
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
-    dev: false
 
   /@types/fs-extra/11.0.1:
     resolution: {integrity: sha512-MxObHvNl4A69ofaTRU8DFqvgzzv8s9yRtaPPm5gud9HDNvpB3GPQFvNuTWAI59B9huVGV5jXYJwbCsmBsOGYWA==}
@@ -3591,7 +3599,6 @@ packages:
       mdast-util-to-markdown: 1.5.0
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /mdast-util-phrasing/3.0.1:
     resolution: {integrity: sha512-WmI1gTXUBJo4/ZmSk79Wcb2HcjPJBzM1nlI/OUWA8yk2X9ik3ffNbBGsU+09BFmXaL1IBb9fiuvq6/KMiNycSg==}

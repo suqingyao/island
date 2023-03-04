@@ -8,6 +8,7 @@ import { rehypePluginPreWrapper } from './rehypePlugins/preWrapper';
 import { rehypePluginShiki } from './rehypePlugins/shiki';
 import type { Plugin } from 'vite';
 import shiki from 'shiki';
+import { remarkPluginToc } from './remarkPlugins/toc';
 
 export async function pluginMdxRollup(): Promise<Plugin> {
   return pluginMdx({
@@ -19,7 +20,8 @@ export async function pluginMdxRollup(): Promise<Plugin> {
         {
           name: 'frontmatter'
         }
-      ]
+      ],
+      remarkPluginToc
     ],
     rehypePlugins: [
       rehypeSlug,
