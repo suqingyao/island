@@ -78,6 +78,7 @@
     "remark-mdx": "^2.3.0",
     "remark-mdx-frontmatter": "^2.1.1",
     "shiki": "^0.14.1",
+    "unocss": "^0.50.4",
     "vite": "^4.0.4"
   }
 }
