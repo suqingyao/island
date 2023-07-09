@@ -1,3 +1,4 @@
+import { ComponentType } from 'react';
 import { UserConfig as ViteConfiguration } from 'vite';
 
 export type NavItemWithLink = {
@@ -49,12 +50,35 @@ export interface RouteMeta {
 
 export type PageType = 'home' | 'doc' | 'custom' | '404';
 
-export interface FrontMatter {
+export interface Feature {
+  icon: string;
   title: string;
+  details: string;
+}
+
+export interface Hero {
+  name: string;
+  text: string;
+  tagline: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+  actions: {
+    text: string;
+    link: string;
+    theme: 'brand' | 'alt';
+  }[];
+}
+
+export interface FrontMatter {
+  title?: string;
   description?: string;
   pageType?: PageType;
   sidebar?: boolean;
   outline?: boolean;
+  hero?: Hero;
+  features?: Feature[];
 }
 
 export interface Header {
@@ -74,5 +98,6 @@ export interface PageData {
 export interface PageModule {
   default: ComponentType;
   frontmatter?: FrontMatter;
+  toc?: Header[];
   [key: string]: unknown;
 }

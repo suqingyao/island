@@ -2,6 +2,7 @@ import { PACKAGE_ROOT } from 'node/constants';
 import { join, relative } from 'path';
 import { SiteConfig } from 'shared/types';
 import { Plugin } from 'vite';
+import sirv from 'sirv';
 
 const SITE_DATA_ID = 'island:site-data';
 
@@ -28,6 +29,11 @@ export function pluginConfig(
           alias: {
             '@runtime': join(PACKAGE_ROOT, 'src', 'runtime', 'index.ts')
           }
+        },
+        css: {
+          modules: {
+            localsConvention: 'camelCaseOnly'
+          }
         }
       };
     },
@@ -41,6 +47,10 @@ export function pluginConfig(
         );
         await restart();
       }
+    },
+    configureServer(server) {
+      const publicDir = join(config.root, 'public');
+      server.middlewares.use(sirv(publicDir));
     }
   };
 }

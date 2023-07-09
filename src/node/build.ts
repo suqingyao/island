@@ -18,7 +18,7 @@ export async function bundle(root: string, config: SiteConfig) {
       root,
       plugins: await createVitePlugins(config, undefined, isServer),
       ssr: {
-        noExternal: ['react-router-dom']
+        noExternal: ['react-router-dom', 'lodash-es']
       },
       build: {
         minify: false,
@@ -61,7 +61,7 @@ export async function renderPage(
   await Promise.all(
     routes.map(async (route) => {
       const routePath = route.path;
-      const appHtml = render(routePath);
+      const appHtml = await render(routePath);
       const html = `
   <!DOCTYPE html>
   <html lang="en">
