@@ -29,6 +29,9 @@
     "@commitlint/config-conventional": "^17.4.4",
     "@iconify-json/carbon": "^1.1.18",
     "@playwright/test": "^1.31.1",
+    "@types/babel__core": "^7.20.1",
+    "@types/babel__helper-plugin-utils": "^7.10.0",
+    "@types/babel__traverse": "^7.20.1",
     "@types/fs-extra": "^11.0.1",
     "@types/hast": "^2.3.4",
     "@types/lodash-es": "^4.17.7",
@@ -64,6 +67,10 @@
     "vitest": "^0.28.5"
   },
   "dependencies": {
+    "@babel/core": "^7.22.8",
+    "@babel/helper-plugin-utils": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/traverse": "^7.22.8",
     "@loadable/component": "^5.15.3",
     "@mdx-js/rollup": "^2.3.0",
     "@vitejs/plugin-react": "^3.0.1",
