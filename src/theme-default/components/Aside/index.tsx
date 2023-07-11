@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Header } from 'shared/types';
+import { Header, PropsWithIsland } from 'shared/types';
 import {
   bindingAsideScroll,
   scrollToTarget
@@ -10,7 +10,7 @@ interface AsideProps {
   headers: Header[];
 }
 
-export default function Aside(props: AsideProps) {
+export default function Aside(props: AsideProps & PropsWithIsland) {
   const { headers: rawHeaders = [] } = props;
   const headers = useHeaders(rawHeaders);
   const hasOutline = rawHeaders.length > 0;

@@ -29,7 +29,7 @@ export default function Nav() {
         <div flex="~">
           <div flex="~">
             {nav.map((item) => (
-              <MenuItem {...item} key={item.link} />
+              <MenuItem item={item} key={item.link} />
             ))}
           </div>
           <div before="menu-item-before" flex="~">
@@ -50,7 +50,7 @@ export default function Nav() {
   );
 }
 
-function MenuItem(item: NavItemWithLink) {
+function MenuItem({ item }: { item: NavItemWithLink }) {
   return (
     <div className="text-sm font-medium mx-3">
       <a href={item.link} className={styles.link}>
