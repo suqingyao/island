@@ -50,21 +50,46 @@ describe('Markdown compile cases', async () => {
       .use(remarkPluginToc)
       .use(remarkStringify);
 
-    const mdContent = '## title';
-
+    const mdContent = `
+      # h1
+      ## h2
+      ### h3
+      #### h4
+      ##### h5
+    `;
     const result = remarkProcessor.processSync(mdContent);
 
     expect(result.value.toString().replace(mdContent, ''))
       .toMatchInlineSnapshot(`
-      "
+      "# h1
+
+      ## h2
+
+      ### h3
+
+      #### h4
+
+      ##### h5
 
       export const toc = [
         {
-          \\"id\\": \\"title\\",
-          \\"text\\": \\"title\\",
+          \\"id\\": \\"h2\\",
+          \\"text\\": \\"h2\\",
           \\"depth\\": 2
+        },
+        {
+          \\"id\\": \\"h3\\",
+          \\"text\\": \\"h3\\",
+          \\"depth\\": 3
+        },
+        {
+          \\"id\\": \\"h4\\",
+          \\"text\\": \\"h4\\",
+          \\"depth\\": 4
         }
       ]
+
+      export const title = 'h1'
       "
     `);
   });
