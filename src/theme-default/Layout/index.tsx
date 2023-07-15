@@ -6,6 +6,7 @@ import '../styles/doc.css';
 import 'uno.css';
 import HomeLayout from './HomeLayout';
 import DocLayout from './DocLayout';
+import NotFoundLayout from './NotFoundLayout';
 import { Helmet } from 'react-helmet-async';
 
 export function Layout() {
@@ -18,7 +19,7 @@ export function Layout() {
     } else if (pageType === 'doc') {
       return <DocLayout />;
     } else {
-      return <div>404</div>;
+      return <NotFoundLayout />;
     }
   };
 
