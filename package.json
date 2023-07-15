@@ -26,6 +26,7 @@
   "author": "cullyfung",
   "license": "MIT",
   "devDependencies": {
+    "@antfu/ni": "^0.21.4",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@iconify-json/carbon": "^1.1.18",
