@@ -14,6 +14,7 @@ import { SiteConfig } from 'shared/types';
 import { createVitePlugins } from './vitePlugins';
 import { Route } from './plugin-routes';
 import { RenderResult } from 'runtime/server-entry';
+import { HelmetData } from 'react-helmet-async';
 
 const CLIENT_OUTPUT = 'build';
 
@@ -126,7 +127,7 @@ async function buildIslands(
 }
 
 export async function renderPage(
-  render: (url: string) => RenderResult,
+  render: (url: string, helmetContext: object) => RenderResult,
   root: string,
   clientBundle: RollupOutput,
   routes: Route[]
@@ -138,11 +139,14 @@ export async function renderPage(
   await Promise.all(
     routes.map(async (route) => {
       const routePath = route.path;
+      const helmetContext = {
+        context: {}
+      } as HelmetData;
       const {
         appHtml,
         islandToPathMap,
         islandProps = []
-      } = await render(routePath);
+      } = await render(routePath, helmetContext.context);
 
       const islandBundle = await buildIslands(root, islandToPathMap);
 
@@ -151,8 +155,12 @@ export async function renderPage(
       );
 
       const islandCode = (islandBundle as RollupOutput).output[0].code;
+
+      const { helmet } = helmetContext.context;
+
       const normalizeVendorFilename = (fileName: string) =>
         fileName.replace(/\\/g, '_') + '.js';
+
       const html = `
   <!DOCTYPE html>
   <html lang="en">
@@ -160,7 +168,10 @@ export async function renderPage(
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
+      ${helmet?.title?.toString() || ''}
+      ${helmet?.meta?.toString() || ''}
+      ${helmet?.link?.toString() || ''}
+      ${helmet?.style?.toString() || ''}
       ${styleAssets
         .map((item) => `<link rel="stylesheet" href="/${item.fileName}">`)
         .join('\n')}

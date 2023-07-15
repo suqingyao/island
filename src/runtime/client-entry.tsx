@@ -4,6 +4,7 @@ import siteData from 'island:site-data';
 import { BrowserRouter } from 'react-router-dom';
 import { DataContext } from './hooks';
 import { ComponentType } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 
 declare global {
   interface Window {
@@ -24,11 +25,13 @@ async function renderInBrowser() {
     const pageData = await initPageData(location.pathname);
 
     createRoot(rootElement).render(
-      <DataContext.Provider value={pageData}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </DataContext.Provider>
+      <HelmetProvider>
+        <DataContext.Provider value={pageData}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </DataContext.Provider>
+      </HelmetProvider>
     );
   } else {
     const islands = document.querySelectorAll('[__island]');
@@ -41,16 +44,6 @@ async function renderInBrowser() {
       hydrateRoot(island, <Element {...window.ISLAND_PROPS[index]} />);
     }
   }
-
-  const pageData = await initPageData(location.pathname);
-
-  createRoot(rootElement).render(
-    <DataContext.Provider value={pageData}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </DataContext.Provider>
-  );
 }
 
 renderInBrowser();
