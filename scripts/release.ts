@@ -58,8 +58,8 @@ async function main() {
   }
 
   step('\nRunning tests...');
-  await run('nr', ['test:unit']);
-  await run('nr', ['test:e2e']);
+  await run('pnpm', ['test:unit']);
+  await run('pnpm', ['test:e2e']);
 
   if (!isDry) {
     step('\nUpdate version...');
@@ -67,10 +67,10 @@ async function main() {
   }
 
   step('\nBuilding package...');
-  await run('nr', ['build']);
+  await run('pnpm', ['build']);
 
   step('\nGenerating changelog...');
-  await run('nr', ['changelog']);
+  await run('pnpm', ['changelog']);
 
   step('\nCommitting changes...');
   await run('git', ['add', '.']);

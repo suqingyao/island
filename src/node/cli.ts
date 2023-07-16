@@ -1,8 +1,8 @@
 import cac from 'cac';
 import { build } from './build';
 import { resolve } from 'path';
-import { resolveConfig } from './config';
 import { preview } from './preview';
+import { resolveConfig } from './config';
 
 const cli = cac('island').version('0.0.1').help();
 
