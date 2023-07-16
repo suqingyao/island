@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra';
-import { execa } from 'execa';
+import * as execa from 'execa';
 
 const exampleDir = path.join(__dirname, '../e2e/playground/basic');
 
