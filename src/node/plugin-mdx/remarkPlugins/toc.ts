@@ -2,7 +2,7 @@ import { Root } from 'mdast';
 import { Plugin } from 'unified';
 import { visit } from 'unist-util-visit';
 import Slugger from 'github-slugger';
-import type { MdxjsEsm, Program } from 'mdast-util-mdxjs-esm';
+import type { MdxjsEsm } from 'mdast-util-mdxjs-esm';
 import { parse } from 'acorn';
 
 interface TocItem {
@@ -59,7 +59,7 @@ export const remarkPluginToc: Plugin<[], Root> = () => {
         estree: parse(insertedCode, {
           ecmaVersion: 2020,
           sourceType: 'module'
-        }) as unknown as Program
+        }) as unknown
       }
     } as MdxjsEsm);
 
@@ -72,7 +72,7 @@ export const remarkPluginToc: Plugin<[], Root> = () => {
           estree: parse(insertedCode, {
             ecmaVersion: 2020,
             sourceType: 'module'
-          }) as unknown as Program
+          }) as unknown
         }
       } as MdxjsEsm);
     }

@@ -23,7 +23,7 @@
     "src/shared"
   ],
   "scripts": {
-    "build": "tsup && ni build:deps",
+    "build": "tsup && pnpm build:deps",
     "build:deps": "tsx ./scripts/prebundle",
     "dev": "tsup --watch",
     "lint": "eslint --fix --ext .ts,.tsx.js,.jsx ./",

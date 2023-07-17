@@ -54,7 +54,9 @@ async function preBundle(deps: string[]) {
             const res = require(entryPath);
             const specifiers = Object.keys(res);
             return {
-              contents: `expect {} from "${entryPath}"; export default require("${entryPath}");`,
+              contents: `export { ${specifiers.join(
+                ','
+              )} } from "${entryPath}"; export default require("${entryPath}");`,
               loader: 'js',
               resolveDir: process.cwd()
             };
