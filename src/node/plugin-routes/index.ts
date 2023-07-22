@@ -25,12 +25,12 @@ export function pluginRoutes(options: PluginOptions): Plugin {
     },
     resolveId(id) {
       if (id === CONVENTIONAL_ROUTE_ID) {
-        return '\0' + CONVENTIONAL_ROUTE_ID;
+        return '\0' + id;
       }
     },
-    load(id, options) {
+    load(id: string) {
       if (id === '\0' + CONVENTIONAL_ROUTE_ID) {
-        return routeService.generateRoutesCode(options.ssr || false);
+        return routeService.generateRoutesCode(options.isSSR);
       }
     }
   };

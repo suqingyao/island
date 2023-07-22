@@ -32,7 +32,8 @@ export async function resolveUserConfig(
       command,
       mode
     },
-    configPath
+    configPath,
+    root
   );
 
   if (result) {
@@ -70,6 +71,6 @@ export async function resolveConfig(
   return siteConfig;
 }
 
-export function defineConfig(config: UserConfig): UserConfig {
+export function defineConfig(config: UserConfig) {
   return config;
 }

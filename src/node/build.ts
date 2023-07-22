@@ -46,8 +46,8 @@ export async function bundle(root: string, config: SiteConfig) {
     };
   };
 
-  const spinner = ora();
-  spinner.start('Building client + server bundles...');
+  // const spinner = ora();
+  // spinner.start('Building client + server bundles...');
 
   try {
     const [clientBundle, serverBundle] = await Promise.all([
@@ -73,10 +73,10 @@ async function buildIslands(
     ${Object.entries(islandPathToMap)
       .map(
         ([islandName, islandPath]) =>
-          `import { ${islandName} from '${islandPath}'}`
+          `import { ${islandName} } from '${islandPath}'`
       )
       .join('')}
-    window.ISLANDS = ${Object.keys(islandPathToMap).join(',')};
+    window.ISLANDS = { ${Object.keys(islandPathToMap).join(', ')} };
     window.ISLAND_PROPS = JSON.parse(
       document.getElementById('island-props').textContent
     );
@@ -132,6 +132,7 @@ export async function renderPage(
   clientBundle: RollupOutput,
   routes: Route[]
 ) {
+  console.log('Rendering page in server side...');
   const clientChunk = clientBundle.output.find(
     (chunk) => chunk.type === 'chunk' && chunk.isEntry
   );
@@ -156,7 +157,7 @@ export async function renderPage(
       const islandBundle = await buildIslands(root, islandToPathMap);
 
       const styleAssets = clientBundle.output.filter(
-        (chunk) => chunk.type === 'asset' && chunk.fileName.endsWith('css')
+        (chunk) => chunk.type === 'asset' && chunk.fileName.endsWith('.css')
       );
 
       const islandCode = (islandBundle as RollupOutput).output[0].code;
@@ -164,7 +165,7 @@ export async function renderPage(
       const { helmet } = helmetContext.context;
 
       const normalizeVendorFilename = (fileName: string) =>
-        fileName.replace(/\\/g, '_') + '.js';
+        fileName.replace(/\//g, '_') + '.js';
 
       const html = `
   <!DOCTYPE html>
@@ -193,25 +194,25 @@ export async function renderPage(
     <body>
       <div id="root">${appHtml}</div>
       <script type="module">${islandCode}</script>
-      <script type="module" src="/${clientChunk.fileName}"></script>
+      <script type="module" src="/${clientChunk?.fileName}"></script>
       <script id="island-props">${JSON.stringify(islandProps)}</script>
     </body>
   </html>
   `.trim();
 
       const fileName = routePath.endsWith('/')
-        ? `${routePath}/index.html`
+        ? `${routePath}index.html`
         : `${routePath}.html`;
       await fs.ensureDir(path.join(root, 'build', dirname(fileName)));
       await fs.writeFile(path.join(root, 'build', fileName), html);
-      await fs.remove(path.join(root, '.temp'));
+      // await fs.remove(path.join(root, '.temp'));
     })
   );
 }
 
 export async function build(root: string = process.cwd(), config: SiteConfig) {
   const [clientBundle] = await bundle(root, config);
-  const serverEntryPath = path.join(root, '.temp', 'server-entry.js');
+  const serverEntryPath = join(root, '.temp', 'server-entry.js');
   const { render, routes } = await import(serverEntryPath);
   try {
     await renderPage(render, root, clientBundle, routes);

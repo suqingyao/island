@@ -1,4 +1,4 @@
-import { usePrevNextPage } from 'theme-default/logic/usePrevNextPage';
+import { usePrevNextPage } from '../../logic/usePrevNextPage';
 import styles from './index.module.scss';
 
 export default function DocFooter() {

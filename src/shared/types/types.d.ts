@@ -7,7 +7,6 @@ declare module 'island:site-data' {
 }
 
 declare module 'island:routes' {
-  import type { RouteObject } from 'react-router-dom';
-  const routes: RouteObject[];
-  export { routes };
+  import type { Route } from 'node/plugin-routes';
+  export const routes: Route[];
 }

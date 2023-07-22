@@ -1,5 +1,4 @@
 import { usePageData } from '@runtime';
-import React from 'react';
 import { NavItemWithLink } from 'shared/types';
 import styles from './index.module.scss';
 import SwitchAppearance from '../SwitchAppearance';

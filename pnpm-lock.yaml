@@ -4,249 +4,251 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  '@babel/core':
-    specifier: ^7.22.8
-    version: 7.22.8
-  '@babel/helper-plugin-utils':
-    specifier: ^7.22.5
-    version: 7.22.5
-  '@babel/preset-react':
-    specifier: ^7.22.5
-    version: 7.22.5(@babel/core@7.22.8)
-  '@babel/traverse':
-    specifier: ^7.22.8
-    version: 7.22.8
-  '@loadable/component':
-    specifier: ^5.15.3
-    version: 5.15.3(react@18.2.0)
-  '@mdx-js/rollup':
-    specifier: ^2.3.0
-    version: 2.3.0(rollup@3.10.0)
-  '@vitejs/plugin-react':
-    specifier: ^3.0.1
-    version: 3.0.1(vite@4.0.4)
-  acorn:
-    specifier: ^8.8.2
-    version: 8.8.2
-  cac:
-    specifier: ^6.7.14
-    version: 6.7.14
-  compression:
-    specifier: ^1.7.4
-    version: 1.7.4
-  esbuild:
-    specifier: ^0.18.13
-    version: 0.18.13
-  fast-glob:
-    specifier: ^3.2.12
-    version: 3.2.12
-  fs-extra:
-    specifier: ^11.1.0
-    version: 11.1.0
-  github-slugger:
-    specifier: ^2.0.0
-    version: 2.0.0
-  hast-util-from-html:
-    specifier: ^1.0.1
-    version: 1.0.1
-  lodash-es:
-    specifier: ^4.17.21
-    version: 4.17.21
-  polka:
-    specifier: ^0.5.2
-    version: 0.5.2
-  react:
-    specifier: ^18.2.0
-    version: 18.2.0
-  react-dom:
-    specifier: ^18.2.0
-    version: 18.2.0(react@18.2.0)
-  react-helmet-async:
-    specifier: 1.3.0
-    version: 1.3.0(react-dom@18.2.0)(react@18.2.0)
-  react-router-dom:
-    specifier: ^6.8.2
-    version: 6.8.2(react-dom@18.2.0)(react@18.2.0)
-  rehype-autolink-headings:
-    specifier: ^6.1.1
-    version: 6.1.1
-  rehype-slug:
-    specifier: ^5.1.0
-    version: 5.1.0
-  remark-frontmatter:
-    specifier: ^4.0.1
-    version: 4.0.1
-  remark-gfm:
-    specifier: ^3.0.1
-    version: 3.0.1
-  remark-mdx:
-    specifier: ^2.3.0
-    version: 2.3.0
-  remark-mdx-frontmatter:
-    specifier: ^2.1.1
-    version: 2.1.1
-  resolve:
-    specifier: ^1.22.2
-    version: 1.22.2
-  shiki:
-    specifier: ^0.14.1
-    version: 0.14.1
-  sirv:
-    specifier: ^2.0.3
-    version: 2.0.3
-  unocss:
-    specifier: ^0.50.4
-    version: 0.50.4(postcss@8.4.21)(rollup@3.10.0)(vite@4.0.4)
-  vite:
-    specifier: ^4.0.4
-    version: 4.0.4(@types/node@18.11.18)(sass@1.63.6)
+importers:
 
-devDependencies:
-  '@commitlint/cli':
-    specifier: ^17.4.4
-    version: 17.4.4
-  '@commitlint/config-conventional':
-    specifier: ^17.4.4
-    version: 17.4.4
-  '@iconify-json/carbon':
-    specifier: ^1.1.18
-    version: 1.1.18
-  '@playwright/test':
-    specifier: ^1.31.1
-    version: 1.31.1
-  '@types/babel__core':
-    specifier: ^7.20.1
-    version: 7.20.1
-  '@types/babel__helper-plugin-utils':
-    specifier: ^7.10.0
-    version: 7.10.0
-  '@types/babel__traverse':
-    specifier: ^7.20.1
-    version: 7.20.1
-  '@types/execa':
-    specifier: ^2.0.0
-    version: 2.0.0
-  '@types/fs-extra':
-    specifier: ^11.0.1
-    version: 11.0.1
-  '@types/hast':
-    specifier: ^2.3.4
-    version: 2.3.4
-  '@types/lodash-es':
-    specifier: ^4.17.7
-    version: 4.17.7
-  '@types/mdast':
-    specifier: ^3.0.10
-    version: 3.0.10
-  '@types/node':
-    specifier: ^18.11.18
-    version: 18.11.18
-  '@types/react':
-    specifier: ^18.2.14
-    version: 18.2.14
-  '@types/react-dom':
-    specifier: ^18.2.6
-    version: 18.2.6
-  '@typescript-eslint/eslint-plugin':
-    specifier: ^5.53.0
-    version: 5.53.0(@typescript-eslint/parser@5.53.0)(eslint@8.34.0)(typescript@4.9.4)
-  '@typescript-eslint/parser':
-    specifier: ^5.53.0
-    version: 5.53.0(eslint@8.34.0)(typescript@4.9.4)
-  '@vitest/ui':
-    specifier: ^0.28.5
-    version: 0.28.5
-  chalk:
-    specifier: ^5.3.0
-    version: 5.3.0
-  commitlint:
-    specifier: ^17.4.4
-    version: 17.4.4
-  conventional-changelog-cli:
-    specifier: ^3.0.0
-    version: 3.0.0
-  enquirer:
-    specifier: ^2.3.6
-    version: 2.3.6
-  eslint:
-    specifier: ^8.34.0
-    version: 8.34.0
-  eslint-config-prettier:
-    specifier: ^8.6.0
-    version: 8.6.0(eslint@8.34.0)
-  eslint-plugin-prettier:
-    specifier: ^4.2.1
-    version: 4.2.1(eslint-config-prettier@8.6.0)(eslint@8.34.0)(prettier@2.8.4)
-  eslint-plugin-react:
-    specifier: ^7.32.2
-    version: 7.32.2(eslint@8.34.0)
-  eslint-plugin-react-hooks:
-    specifier: ^4.6.0
-    version: 4.6.0(eslint@8.34.0)
-  execa:
-    specifier: ^5.1.1
-    version: 5.1.1
-  hast:
-    specifier: ^1.0.0
-    version: 1.0.0
-  husky:
-    specifier: ^8.0.3
-    version: 8.0.3
-  lint-staged:
-    specifier: ^13.1.2
-    version: 13.1.2(enquirer@2.3.6)
-  mdast-util-mdxjs-esm:
-    specifier: ^1.3.1
-    version: 1.3.1
-  minimist:
-    specifier: ^1.2.8
-    version: 1.2.8
-  ora:
-    specifier: ^6.1.2
-    version: 6.1.2
-  prettier:
-    specifier: ^2.8.4
-    version: 2.8.4
-  rehype-stringify:
-    specifier: ^9.0.3
-    version: 9.0.3
-  remark-parse:
-    specifier: ^10.0.1
-    version: 10.0.1
-  remark-rehype:
-    specifier: ^10.1.0
-    version: 10.1.0
-  remark-stringify:
-    specifier: ^10.0.2
-    version: 10.0.2
-  rollup:
-    specifier: ^3.10.0
-    version: 3.10.0
-  sass:
-    specifier: ^1.63.6
-    version: 1.63.6
-  semver:
-    specifier: ^7.5.4
-    version: 7.5.4
-  tsup:
-    specifier: ^6.6.3
-    version: 6.6.3(postcss@8.4.21)(ts-node@10.9.1)(typescript@4.9.4)
-  tsx:
-    specifier: ^3.12.7
-    version: 3.12.7
-  typescript:
-    specifier: ^4.9.4
-    version: 4.9.4
-  unified:
-    specifier: ^10.1.2
-    version: 10.1.2
-  unist-util-visit:
-    specifier: ^4.1.2
-    version: 4.1.2
-  vitest:
-    specifier: ^0.28.5
-    version: 0.28.5(@vitest/ui@0.28.5)(sass@1.63.6)
+  .:
+    dependencies:
+      '@babel/core':
+        specifier: ^7.22.8
+        version: 7.22.8
+      '@babel/helper-plugin-utils':
+        specifier: ^7.22.5
+        version: 7.22.5
+      '@babel/preset-react':
+        specifier: ^7.22.5
+        version: 7.22.5(@babel/core@7.22.8)
+      '@babel/traverse':
+        specifier: ^7.22.8
+        version: 7.22.8
+      '@loadable/component':
+        specifier: ^5.15.3
+        version: 5.15.3(react@18.2.0)
+      '@mdx-js/rollup':
+        specifier: ^2.3.0
+        version: 2.3.0(rollup@3.10.0)
+      '@vitejs/plugin-react':
+        specifier: ^3.0.1
+        version: 3.0.1(vite@4.0.4)
+      acorn:
+        specifier: ^8.8.2
+        version: 8.8.2
+      cac:
+        specifier: ^6.7.14
+        version: 6.7.14
+      compression:
+        specifier: ^1.7.4
+        version: 1.7.4
+      esbuild:
+        specifier: ^0.18.13
+        version: 0.18.13
+      fast-glob:
+        specifier: ^3.2.12
+        version: 3.2.12
+      fs-extra:
+        specifier: ^11.1.0
+        version: 11.1.0
+      github-slugger:
+        specifier: ^2.0.0
+        version: 2.0.0
+      hast-util-from-html:
+        specifier: ^1.0.1
+        version: 1.0.1
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
+      polka:
+        specifier: ^0.5.2
+        version: 0.5.2
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-helmet-async:
+        specifier: 1.3.0
+        version: 1.3.0(react-dom@18.2.0)(react@18.2.0)
+      react-router-dom:
+        specifier: ^6.8.2
+        version: 6.8.2(react-dom@18.2.0)(react@18.2.0)
+      rehype-autolink-headings:
+        specifier: ^6.1.1
+        version: 6.1.1
+      rehype-slug:
+        specifier: ^5.1.0
+        version: 5.1.0
+      remark-frontmatter:
+        specifier: ^4.0.1
+        version: 4.0.1
+      remark-gfm:
+        specifier: ^3.0.1
+        version: 3.0.1
+      remark-mdx:
+        specifier: ^2.3.0
+        version: 2.3.0
+      remark-mdx-frontmatter:
+        specifier: ^2.1.1
+        version: 2.1.1
+      resolve:
+        specifier: ^1.22.2
+        version: 1.22.2
+      shiki:
+        specifier: ^0.14.1
+        version: 0.14.1
+      sirv:
+        specifier: ^2.0.3
+        version: 2.0.3
+      unocss:
+        specifier: ^0.50.4
+        version: 0.50.4(postcss@8.4.21)(rollup@3.10.0)(vite@4.0.4)
+      vite:
+        specifier: ^4.0.4
+        version: 4.0.4(@types/node@18.11.18)(sass@1.63.6)
+    devDependencies:
+      '@commitlint/cli':
+        specifier: ^17.4.4
+        version: 17.4.4
+      '@commitlint/config-conventional':
+        specifier: ^17.4.4
+        version: 17.4.4
+      '@iconify-json/carbon':
+        specifier: ^1.1.18
+        version: 1.1.18
+      '@playwright/test':
+        specifier: ^1.31.1
+        version: 1.31.1
+      '@types/babel__core':
+        specifier: ^7.20.1
+        version: 7.20.1
+      '@types/babel__helper-plugin-utils':
+        specifier: ^7.10.0
+        version: 7.10.0
+      '@types/babel__traverse':
+        specifier: ^7.20.1
+        version: 7.20.1
+      '@types/execa':
+        specifier: ^2.0.0
+        version: 2.0.0
+      '@types/fs-extra':
+        specifier: ^11.0.1
+        version: 11.0.1
+      '@types/hast':
+        specifier: ^2.3.4
+        version: 2.3.4
+      '@types/lodash-es':
+        specifier: ^4.17.7
+        version: 4.17.7
+      '@types/mdast':
+        specifier: ^3.0.10
+        version: 3.0.10
+      '@types/node':
+        specifier: ^18.11.18
+        version: 18.11.18
+      '@types/react':
+        specifier: ^18.2.14
+        version: 18.2.14
+      '@types/react-dom':
+        specifier: ^18.2.6
+        version: 18.2.6
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^5.53.0
+        version: 5.53.0(@typescript-eslint/parser@5.53.0)(eslint@8.34.0)(typescript@4.9.4)
+      '@typescript-eslint/parser':
+        specifier: ^5.53.0
+        version: 5.53.0(eslint@8.34.0)(typescript@4.9.4)
+      '@vitest/ui':
+        specifier: ^0.28.5
+        version: 0.28.5
+      chalk:
+        specifier: ^5.3.0
+        version: 5.3.0
+      commitlint:
+        specifier: ^17.4.4
+        version: 17.4.4
+      conventional-changelog-cli:
+        specifier: ^3.0.0
+        version: 3.0.0
+      enquirer:
+        specifier: ^2.3.6
+        version: 2.3.6
+      eslint:
+        specifier: ^8.34.0
+        version: 8.34.0
+      eslint-config-prettier:
+        specifier: ^8.6.0
+        version: 8.6.0(eslint@8.34.0)
+      eslint-plugin-prettier:
+        specifier: ^4.2.1
+        version: 4.2.1(eslint-config-prettier@8.6.0)(eslint@8.34.0)(prettier@2.8.4)
+      eslint-plugin-react:
+        specifier: ^7.32.2
+        version: 7.32.2(eslint@8.34.0)
+      eslint-plugin-react-hooks:
+        specifier: ^4.6.0
+        version: 4.6.0(eslint@8.34.0)
+      execa:
+        specifier: ^5.1.1
+        version: 5.1.1
+      hast:
+        specifier: ^1.0.0
+        version: 1.0.0
+      husky:
+        specifier: ^8.0.3
+        version: 8.0.3
+      lint-staged:
+        specifier: ^13.1.2
+        version: 13.1.2(enquirer@2.3.6)
+      mdast-util-mdxjs-esm:
+        specifier: ^1.3.0
+        version: 1.3.0
+      minimist:
+        specifier: ^1.2.8
+        version: 1.2.8
+      ora:
+        specifier: ^6.1.2
+        version: 6.1.2
+      prettier:
+        specifier: ^2.8.4
+        version: 2.8.4
+      rehype-stringify:
+        specifier: ^9.0.3
+        version: 9.0.3
+      remark-parse:
+        specifier: ^10.0.1
+        version: 10.0.1
+      remark-rehype:
+        specifier: ^10.1.0
+        version: 10.1.0
+      remark-stringify:
+        specifier: ^10.0.2
+        version: 10.0.2
+      rollup:
+        specifier: ^3.10.0
+        version: 3.10.0
+      sass:
+        specifier: ^1.63.6
+        version: 1.63.6
+      semver:
+        specifier: ^7.5.4
+        version: 7.5.4
+      tsup:
+        specifier: ^6.6.3
+        version: 6.6.3(postcss@8.4.21)(ts-node@10.9.1)(typescript@4.9.4)
+      tsx:
+        specifier: ^3.12.7
+        version: 3.12.7
+      typescript:
+        specifier: ^4.9.4
+        version: 4.9.4
+      unified:
+        specifier: ^10.1.2
+        version: 10.1.2
+      unist-util-visit:
+        specifier: ^4.1.2
+        version: 4.1.2
+      vitest:
+        specifier: ^0.28.5
+        version: 0.28.5(@vitest/ui@0.28.5)(sass@1.63.6)
 
 packages:
 
@@ -4753,6 +4755,18 @@ packages:
       - supports-color
     dev: false
 
+  /mdast-util-mdxjs-esm@1.3.0:
+    resolution: {integrity: sha512-7N5ihsOkAEGjFotIX9p/YPdl4TqUoMxL4ajNz7PbT89BqsdWJuBC9rvgt6wpbwTZqWWR0jKWqQbwsOWDBUZv4g==}
+    dependencies:
+      '@types/estree-jsx': 1.0.0
+      '@types/hast': 2.3.4
+      '@types/mdast': 3.0.10
+      mdast-util-from-markdown: 1.3.0
+      mdast-util-to-markdown: 1.5.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /mdast-util-mdxjs-esm@1.3.1:
     resolution: {integrity: sha512-SXqglS0HrEvSdUEfoXFtcg7DRl7S2cwOXc7jkuusG472Mmjag34DUDeOJUZtl+BVnyeO1frIgVpHlNRWc2gk/w==}
     dependencies:
@@ -4763,6 +4777,7 @@ packages:
       mdast-util-to-markdown: 1.5.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
 
   /mdast-util-phrasing@3.0.1:
     resolution: {integrity: sha512-WmI1gTXUBJo4/ZmSk79Wcb2HcjPJBzM1nlI/OUWA8yk2X9ik3ffNbBGsU+09BFmXaL1IBb9fiuvq6/KMiNycSg==}

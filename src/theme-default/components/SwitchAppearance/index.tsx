@@ -1,4 +1,4 @@
-import { toggle } from 'theme-default/logic/toggleAppearance';
+import { toggle } from '../../logic/toggleAppearance';
 import styles from './index.module.scss';
 
 import React from 'react';

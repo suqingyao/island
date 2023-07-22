@@ -1,6 +1,12 @@
 import { ComponentType } from 'react';
 import { UserConfig as ViteConfiguration } from 'vite';
 
+export interface Header {
+  id: string;
+  text: string;
+  depth: number;
+}
+
 export type NavItemWithLink = {
   text: string;
   link: string;
@@ -43,11 +49,6 @@ export interface SiteConfig {
   siteData: UserConfig;
 }
 
-export interface RouteMeta {
-  routePath: string;
-  absolutePath: string;
-}
-
 export type PageType = 'home' | 'doc' | 'custom' | '404';
 
 export interface Feature {
@@ -81,12 +82,6 @@ export interface FrontMatter {
   features?: Feature[];
 }
 
-export interface Header {
-  id: string;
-  text: string;
-  depth: number;
-}
-
 export interface PageData {
   siteData: UserConfig;
   pagePath: string;
@@ -100,7 +95,7 @@ export interface PageModule {
   default: ComponentType;
   frontmatter?: FrontMatter;
   toc?: Header[];
-  title: string;
+  title?: string;
   [key: string]: unknown;
 }
 

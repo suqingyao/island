@@ -1,10 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Header, PropsWithIsland } from 'shared/types';
-import {
-  bindingAsideScroll,
-  scrollToTarget
-} from 'theme-default/logic/asideScroll';
-import { useHeaders } from 'theme-default/logic/useHeaders';
+import { bindingAsideScroll, scrollToTarget } from '../../logic/asideScroll';
+import { useHeaders } from '../../logic/useHeaders';
 
 interface AsideProps {
   headers: Header[];

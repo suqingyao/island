@@ -38,9 +38,12 @@ describe('Markdown compile cases', async () => {
   });
 
   test('Compile code block', () => {
-    const mdContent = '```js\nconsole.log(123);\n```';
+    const mdContent = '```javascript\n console.log("island")\n```';
+
     const result = processor.processSync(mdContent);
-    expect(result.value).toMatchInlineSnapshot();
+    expect(result.value).toMatchInlineSnapshot(
+      '"<p>I am use <code>island.js</code></p>"'
+    );
   });
 
   test('Compile Toc', () => {
